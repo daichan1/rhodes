@@ -5,4 +5,13 @@ class Book < ApplicationRecord
   validates :status, presence: true
   validates :gist, presence: true, length: { maximum: 5000 }
   validates :impression, presence: true, length: { maximum: 10000 }
+
+  # クラスインスタンスメソッド
+  # 書籍一覧表示に必要な情報だけを返す
+  def self.res_index(books)
+    res_books = books.map do |book|
+      { id: book.id, title: book.title }  
+    end
+    res_books
+  end
 end
