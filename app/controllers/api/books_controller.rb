@@ -4,6 +4,9 @@ class Api::BooksController < ApplicationController
   # IPアドレスで許可する方法もあるみたい
   protect_from_forgery with: :null_session
   def index
+    books = Book.all
+    res_books = Book.res_index(books)
+    render json: res_books
   end
 
   def show
