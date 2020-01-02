@@ -42,7 +42,8 @@ class Api::BooksController < ApplicationController
       :publisher,
       :status,
       :gist,
-      :impression
+      :impression,
+      :image
     )
   end
 end

@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   validates :status, presence: true
   validates :gist, presence: true, length: { maximum: 5000 }
   validates :impression, presence: true, length: { maximum: 10000 }
+  validates :image, presence: true
 
   # クラスインスタンスメソッド
   # 書籍一覧表示に必要な情報だけを返す
