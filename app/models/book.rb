@@ -11,7 +11,7 @@ class Book < ApplicationRecord
   # 書籍一覧表示に必要な情報だけを返す
   def self.res_index(books)
     res_books = books.map do |book|
-      { id: book.id, title: book.title }  
+      { id: book.id, title: book.title, image: book.image }  
     end
     res_books
   end
