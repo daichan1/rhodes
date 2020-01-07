@@ -15,4 +15,19 @@ class Book < ApplicationRecord
     end
     res_books
   end
+
+  # インスタンスメソッド
+  # 個別書籍表示に必要な情報だけを返す
+  def res_show
+    {
+      id: self.id,
+      title: self.title,
+      author: self.author,
+      publisher: self.publisher,
+      status: self.status,
+      gist: self.gist,
+      impression: self.impression,
+      image: self.image
+    }
+  end
 end
