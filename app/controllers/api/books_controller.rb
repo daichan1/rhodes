@@ -10,6 +10,9 @@ class Api::BooksController < ApplicationController
   end
 
   def show
+    book = Book.find(params[:id])
+    res_book = book.res_show
+    render json: res_book
   end
 
   def new
