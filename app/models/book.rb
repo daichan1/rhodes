@@ -30,4 +30,16 @@ class Book < ApplicationRecord
       image: self.image
     }
   end
+
+  # 個別書籍データを更新する
+  def update_book(params)
+    self.title = params[:title]
+    self.author = params[:author]
+    self.publisher = params[:publisher]
+    self.status = params[:status]
+    self.gist = params[:gist]
+    self.impression = params[:impression]
+    self.image = params[:image]
+    self
+  end
 end
