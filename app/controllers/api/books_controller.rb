@@ -28,9 +28,19 @@ class Api::BooksController < ApplicationController
   end
 
   def edit
+    book = Book.find(params[:id])
+    res_book = book.res_show
+    render json: res_book
   end
 
   def update
+    book = Book.find(id_param["id"])
+    book = book.update_book(book_params)
+    if book.save
+      render json: "書籍の更新に成功しました"
+    else
+      render json: "書籍の更新に失敗しました"
+    end
   end
 
   def delete
@@ -48,5 +58,9 @@ class Api::BooksController < ApplicationController
       :impression,
       :image
     )
+  end
+
+  def id_param
+    params.permit(:id)
   end
 end
