@@ -27,7 +27,9 @@ class Book < ApplicationRecord
       status: self.status,
       gist: self.gist,
       impression: self.impression,
-      image: self.image
+      image: self.image,
+      gistWordCount: self.gist.length,
+      impressionWordCount: self.impression.length
     }
   end
 
