@@ -43,7 +43,13 @@ class Api::BooksController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    book = Book.find(id_param["id"])
+    if book.destroy
+      render json: "書籍の削除に成功しました"
+    else
+      render json: "書籍の削除に失敗しました"
+    end
   end
 
   private
