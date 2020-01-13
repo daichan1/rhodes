@@ -5,6 +5,7 @@ class Api::BooksController < ApplicationController
   protect_from_forgery with: :null_session
   def index
     books = Book.all
+    books = books.where(status: params["status"]) if params["status"].present?
     res_books = Book.res_index(books)
     render json: res_books
   end
